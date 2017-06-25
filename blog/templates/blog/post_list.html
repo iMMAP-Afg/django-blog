@@ -1,0 +1,19 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+		{% for post in posts %}
+			<div class="col s12 m4 l4">
+				<div class="card small">
+					<div class="card-content">
+						<h5><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h5>
+						<p>{{ post.text|linebreaksbr }}</p>
+					</div>  
+					<div class="card-action">
+						<div class="date">
+							<b>{{ post.published_date }}</b>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+{% endblock %}

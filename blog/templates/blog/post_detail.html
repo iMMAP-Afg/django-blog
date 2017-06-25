@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-content">
+            <h4>{{ post.title }}</h4>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+        <div class="card-action">
+            {% if post.published_date %}
+                <div class="date">
+                    {{ post.published_date }}
+                </div>
+            {% endif %}
+            <a class="btn-floating halfway-fab waves-effect waves-light" href="{% url 'post_edit' pk=post.pk %}"><i class="material-icons">edit</i></a>
+        </div>
+    </div>
+{% endblock %}
